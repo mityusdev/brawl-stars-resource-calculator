@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brawl Stars Resource Calculator</title>
+    <meta name="title" content="Brawl Stars Resource Calculator" />
+    <meta
+      name="description"
+      content="Find out exactly how many Coins and Power Points you need to max out your Brawlers! Plan your upgrades perfectly in seconds with the Brawl Stars Resource Calculator."
+    />
+    <meta name="keywords" content="Brawl Stars Resource Calculator, Brawl Stars, coins, power points, brawler upgrades" />
+    <meta property="og:title" content="Brawl Stars Resource Calculator" />
+    <meta
+      property="og:description"
+      content="Find out exactly how many Coins and Power Points you need to max out your Brawlers! Plan your upgrades perfectly in seconds with the Brawl Stars Resource Calculator."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/brawl_stars_logo.svg" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <img class="topbar-logo" src="./assets/icons/brawl_stars_logo.svg" alt="Brawl Stars logo" />
+        <div class="title-block">
+          <h1>BRAWL STARS RESOURCE CALCULATOR</h1>
+        </div>
+      </header>
+
+      <div class="main-panels">
+      <section class="panel controls">
+        <h2>Upgrades</h2>
+        <div class="range-meta">
+          <p>Start: <strong id="startLevelValue">1</strong></p>
+          <p class="range-title">Level Range</p>
+          <p>Target: <strong id="targetLevelValue">11</strong></p>
+        </div>
+
+        <div class="dual-range" aria-label="Level range selector">
+          <div class="track"></div>
+          <div id="rangeFill" class="range-fill"></div>
+          <input id="startRange" type="range" min="1" max="11" step="1" value="1" />
+          <input id="targetRange" type="range" min="1" max="11" step="1" value="11" />
+        </div>
+
+        <div class="extras-grid">
+          <article class="option-card" id="gadgetCard">
+            <p class="option-title"><img src="./assets/icons/gadget.svg" alt="Gadget" /> Gadget - 1,000 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></p>
+            <div class="segmented">
+              <label><input type="radio" name="gadgetCount" value="0" /><span>0</span></label>
+              <label><input type="radio" name="gadgetCount" value="1" /><span>1</span></label>
+              <label><input type="radio" name="gadgetCount" value="2" checked /><span>2</span></label>
+            </div>
+            <p class="unlock-note">Unlocked at level 7</p>
+          </article>
+
+          <article class="option-card" id="spCard">
+            <p class="option-title"><img src="./assets/icons/starpower.svg" alt="Star power" /> Star Power - 2,000 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></p>
+            <div class="segmented">
+              <label><input type="radio" name="spCount" value="0" /><span>0</span></label>
+              <label><input type="radio" name="spCount" value="1" /><span>1</span></label>
+              <label><input type="radio" name="spCount" value="2" checked /><span>2</span></label>
+            </div>
+            <p class="unlock-note">Unlocked at level 9</p>
+          </article>
+        </div>
+
+        <article class="option-card hypercharge-wide" id="hcCard">
+          <div class="hypercharge-row">
+            <p class="option-title"><img src="./assets/icons/hypercharge.svg" alt="Hypercharge" /> Hypercharge - 5,000 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></p>
+            <label class="tick inline-toggle"><input id="hcChecked" type="checkbox" checked /></label>
+          </div>
+          <p class="unlock-note">Unlocked at level 11</p>
+        </article>
+
+        <div class="gear-block">
+          <article class="option-card" id="gearCard">
+            <p class="option-title"><img src="./assets/icons/gear_super_rare.svg" alt="Super rare gear" /> Super Rare Gear: <strong id="gearCountValue">2</strong></p>
+            <input id="gearSuperRareRange" class="single-range" type="range" min="0" max="6" step="1" value="2" />
+            <p class="hint">Gears - 1,000 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></p>
+            <p class="unlock-note">Unlocked at level 8</p>
+          </article>
+
+          <article class="option-card special-gears-card" id="specialGearCard">
+            <p class="option-title"><img src="./assets/icons/gear_super_rare.svg" alt="Gear" /> Special Gears</p>
+            <label class="tick"><input id="gearEpicChecked" type="checkbox" checked /><img src="./assets/icons/gear_epic.svg" alt="Epic gear" /><span class="gear-line">Epic Gear -&nbsp;<span class="cost-inline">1,500 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></span></span></label>
+            <label class="tick"><input id="gearMythicChecked" type="checkbox" checked /><img src="./assets/icons/gear_mythic.svg" alt="Mythic gear" /><span class="gear-line">Mythic Gear -&nbsp;<span class="cost-inline">2,000 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></span></span></label>
+          </article>
+        </div>
+
+        <article class="option-card buffies-card">
+          <h3 class="buffies-heading">Buffies -&nbsp;2,000 <img class="inline-icon" src="./assets/icons/power_points.svg" alt="PP" /> + 1,000 <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></h3>
+          <div class="buffie-grid">
+            <label class="tick"><input id="buffieGadget" type="checkbox" /><img src="./assets/icons/buffie.svg" alt="Buffie" /> Gadget Buffie</label>
+            <label class="tick"><input id="buffieStar" type="checkbox" /><img src="./assets/icons/buffie.svg" alt="Buffie" /> Star Buffie</label>
+            <label class="tick"><input id="buffieHyper" type="checkbox" /><img src="./assets/icons/buffie.svg" alt="Buffie" /> Hyper Buffie</label>
+          </div>
+        </article>
+
+        <div class="preset-row">
+          <button id="resetAll" class="btn ghost" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel results">
+        <h2>Totals</h2>
+        <div class="result-cards">
+          <article class="card pp">
+            <p class="label">Total Power Points <img class="inline-icon" src="./assets/icons/power_points.svg" alt="PP" /></p>
+            <p id="ppTotal" class="value">0</p>
+          </article>
+
+          <article class="card coin">
+            <p class="label">Total Coins <img class="inline-icon" src="./assets/icons/gold.svg" alt="Coin" /></p>
+            <p id="coinTotal" class="value">0</p>
+          </article>
+        </div>
+
+        <div class="breakdown">
+          <h3>Breakdown</h3>
+          <ul id="breakdownList"></ul>
+        </div>
+      </section>
+      </div>
+    </main>
+    <a
+      class="github-link"
+      href="https://github.com/mityusdev"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub mityusdev"
+    >
+      GitHub: mityusdev
+    </a>
+    <script src="./app.js"></script>
+  </body>
+</html>
